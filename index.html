@@ -33,29 +33,6 @@
         a:hover, button:hover {
             background-color: #0056b3;
         }
-
-        /* Estilo do formulário */
-        .form-container {
-            display: none;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            margin: 30px auto;
-            text-align: left;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
     </style>
 </head>
 <body>
@@ -68,36 +45,8 @@
         <a href="https://preview--key-guardian-app.lovable.app/" target="_blank">Cofre de senhas</a>
         <a href="https://haveibeenpwned.com/" target="_blank">Vazamento de senhas</a>
         <a href="https://sauce-what-enable-concentration.trycloudflare.com" target="_blank">Cadastro via Google</a>
-        <button onclick="mostrarFormulario()">Cadastrar-se</button>
+        <a href="cadastro.html" target="_blank">Cadastrar-se</a>
     </div>
 
-    <div class="form-container" id="formulario">
-        <form onsubmit="salvarDados(event)">
-            <label for="login">Login:</label>
-            <input type="text" id="login" name="login" required>
-
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-
-            <label for="codigo">Código de Verificação:</label>
-            <input type="text" id="codigo" name="codigo" required>
-
-            <button type="submit">Salvar Cadastro</button>
-        </form>
-    </div>
-
-    <script>
-        function mostrarFormulario() {
-            document.getElementById("formulario").style.display = "block";
-        }
-
-        function salvarDados(event) {
-            event.preventDefault();
-            const login = document.getElementById("login").value;
-            const senha = document.getElementById("senha").value;
-            const codigo = document.getElementById("codigo").value;
-
-            const conteudo = `Login: ${login}\nSenha: ${senha}\nCódigo: ${codigo}`;
-            const blob = new Blob([conteudo], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObje
+</body>
+</html>
